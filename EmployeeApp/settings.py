@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'Employee.apps.EmployeeConfig',
+    'storages',
     # 3rd Party Apps
     
     'knox',
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -157,3 +159,12 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
     ]
 }
+
+
+
+#S3 setup
+AWS_QUERYSTRING_AUTH=False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID='AKIATRQH4QNYICQ6YVWF'
+AWS_SECRET_ACCESS_KEY='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'
+AWS_STORAGE_BUCKET_NAME='kunle-employeeapp'
